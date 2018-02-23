@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
     "start": "webpack -d --watch",
     "nodemon": "nodemon server/server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/thesilverspoon/reviews-component#readme",
   "dependencies": {
+    "express": "^4.16.2",
     "nodemon": "^1.15.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
@@ -35,6 +35,9 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.2",
+    "superagent": "^3.8.2",
+    "supertest": "^3.0.0",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
   }

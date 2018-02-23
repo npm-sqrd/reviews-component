@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'reviews-repo/react/app.jsx'),
+  entry: path.resolve(__dirname, '/react/app.jsx'),
   output: {
     path: path.resolve(__dirname, 'reviews-repo'),
     filename: 'bundle.js',
@@ -14,10 +14,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
-        // options: {
-        //   eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
-        // },
-      },
+      //   options: {
+      //     eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
+      //   },
+      // },
     ],
   },
 };
