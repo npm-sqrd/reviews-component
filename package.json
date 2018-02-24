@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack -d --watch",
     "nodemon": "nodemon server/server.js",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "homepage": "https://github.com/thesilverspoon/reviews-component#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "mongodb": "^2.2.34",
+    "mongoose": "^5.0.7",
     "nodemon": "^1.15.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
@@ -30,12 +32,15 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "jest": "^22.4.2",
+    "jest-enzyme": "^4.2.0",
     "superagent": "^3.8.2",
     "supertest": "^3.0.0",
     "webpack": "^3.11.0",
