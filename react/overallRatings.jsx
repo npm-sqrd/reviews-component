@@ -1,7 +1,21 @@
 import React from 'react';
+import ReviewsList from './reviewsList.jsx';
 
-const overallRatings = function () {
+class OverallRatings extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    }
+  } 
 
+
+
+  render() {
+    return (
+      <ReviewsList />
+    );
+  }
 }
 
-export { overallRatings };
+export { OverallRatings };

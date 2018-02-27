@@ -1,8 +1,10 @@
 import React from 'react';
-import reviewsList from './reviewsList.jsx';
+import ReviewsList from './reviewsList.jsx';
 
-const review = function () {
-
+const Review = () => {
+  return (
+    
+  )
 }
 
-export { review };
+export { Review };

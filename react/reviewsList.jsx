@@ -1,7 +1,9 @@
 import React from 'react';
+import Review from './review.jsx';
 
-const reviewsList = function () {
+const ReviewsList = () => {
   // map over for each review
+  
 }
 
-export { reviewsList };
+export { ReviewsList };
