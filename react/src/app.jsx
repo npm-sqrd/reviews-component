@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import { OverallRatings } from './overallRatings.jsx';
 import { ReviewsList } from './reviewsList.jsx';
 
@@ -11,16 +12,16 @@ class App extends React.Component {
     }
   }
 
-  fetch() {
+  fetch(callback) {
     $.ajax({
-      url: '/data',
+      url: '/restaurants/:id/reviews',
       method: 'GET',
       dataType: 'json',
       success: (data) => {
-        console.log(data);
+        callback(data);
       },
-      error: () => {
-        console.log(error);
+      error: (error) => {
+        console.error(error);
       }
     });
   }
@@ -30,22 +31,16 @@ class App extends React.Component {
   }
 
 
-
-  // handleClick() {
-  //   this.setState({
-  //     data: data
-  //   });
-  // }
-
-
   render () {
     return (
-      <Table>
-      <h1>hello</h1>
-        <TableHeader>
+      <div>
+        <h1>Review Component</h1>
           <OverallRatings />
-        </TableHeader>
-      </Table>
+
+          <table>
+            <ReviewsList reviews={this.state.data}/>
+          </table>
+      </div>
     );
   }
 }
