@@ -2,7 +2,6 @@ import React from 'react';
 import Review from './review.jsx';
 
 const ReviewsList = (props) => {
-  // map over for each review
   return (
     <tbody>
       {props.reviews.map(review => {
@@ -14,4 +13,4 @@ const ReviewsList = (props) => {
   );
 };
 
-export { ReviewsList };
+export default ReviewsList;

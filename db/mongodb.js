@@ -21,35 +21,14 @@ let restaurantSchema = mongoose.Schema({
 
 let Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-let save = function(reviews, callback) {
-
-  reviews.forEach( review => {
-    let restaurantInstance = new Restaurant({
-      restaurantId: Number,
-      restaurantName: String,
-      // overallRating: Number,
-      // totalReviews: Number,
-      restaurantReviews: [ 
-      { id: Number,
-        username: String, 
-        userCity: String,
-        userDinedDate: Date,
-        rating: Number,
-        review: String }  
-      ]
-    })
-  });
-}
 
 function insertOne(restaurant, callback) {
   Restaurant.create(restaurant, callback);
 }
 
-function findAll(restaurant, callback) {
-  Restaurant.create(restaurant, callback);
+function findByRestaurantId(id, callback) {
+  Restaurant.find({ restaurantId: id }).exec(callback);
 }
-// });
 
-module.exports.save = save;
 module.exports.insertOne = insertOne;
-module.exports.findAll = findAll;
+module.exports.findByRestaurantId = findByRestaurantId;
