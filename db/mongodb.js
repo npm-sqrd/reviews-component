@@ -44,7 +44,12 @@ let save = function(reviews, callback) {
 function insertOne(restaurant, callback) {
   Restaurant.create(restaurant, callback);
 }
+
+function findAll(restaurant, callback) {
+  Restaurant.create(restaurant, callback);
+}
 // });
 
 module.exports.save = save;
 module.exports.insertOne = insertOne;
+module.exports.findAll = findAll;

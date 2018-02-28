@@ -13,9 +13,12 @@ class OverallRatings extends React.Component {
 
   render() {
     return (
-      <ReviewsList />
+      <div>
+        Restaurant's Ratings and Reviews:
+        Overall Rating:
+      </div>
     );
-  }
+  };
 }
 
 export { OverallRatings };
