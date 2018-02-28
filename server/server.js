@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('../db/mongodb');
 var app = express();
 // root dir + index.html
-app.use(express.static(__dirname + '../index.html'));
+app.use(express.static(__dirname + '/../index.html'));
 app.get('/restaurants', (request, response) => {
   response.send('Restaurant Reviews');
 });
