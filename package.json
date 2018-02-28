@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack -d --watch",
     "nodemon": "nodemon server/server.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "seed-db": "node seed.js"
   },
   "repository": {
     "type": "git",

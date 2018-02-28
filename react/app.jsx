@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { OverallRatings } from './overallRatings.jsx';
-import { Review } from './review.jsx';
+import { ReviewsList } from './reviewsList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,13 +9,11 @@ class App extends React.Component {
     this.state = {
       data: []
     }
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
   fetch() {
     $.ajax({
-      url: '/reviews',
+      url: '/data',
       method: 'GET',
       dataType: 'json',
       success: (data) => {
@@ -33,11 +31,11 @@ class App extends React.Component {
 
 
 
-  handleClick() {
-    this.setState({
-      data: data
-    });
-  }
+  // handleClick() {
+  //   this.setState({
+  //     data: data
+  //   });
+  // }
 
 
   render () {
