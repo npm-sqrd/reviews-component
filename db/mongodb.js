@@ -12,8 +12,8 @@ let restaurantSchema = mongoose.Schema({
   restaurantReviews: [ 
   { id: Number,
     username: String, 
-    userCity: String,
-    userDinedDate: Date,
+    city: String,
+    dinedDate: Date,
     rating: Number,
     review: String }  
   ]

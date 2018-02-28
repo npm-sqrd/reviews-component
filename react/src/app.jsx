@@ -20,7 +20,10 @@ class App extends React.Component {
       method: 'GET',
       dataType: 'json',
       success: (data) => {
-        callback(data);
+        // callback(data);
+        this.setState({
+          data: data,
+        })
       },
       error: (error) => {
         console.error(error);
