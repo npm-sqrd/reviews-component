@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import { OverallRatings } from './overallRatings.jsx';
-import { ReviewsList } from './reviewsList.jsx';
+// import css from './reviews.css';
+import OverallRatings from './overallRatings.jsx';
+import ReviewsList from './reviewsList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      restaurantName: '',
     }
   }
 
   fetch(callback) {
     $.ajax({
-      url: '/restaurants/:id/reviews',
+      url: '/restaurants/:id',
       method: 'GET',
       dataType: 'json',
       success: (data) => {
@@ -33,10 +35,12 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='app'>
         <h1>Review Component</h1>
-          <OverallRatings />
+          <div>{this.state.restaurantName} Ratings and Reviews:</div>
+          <OverallRatings ratings={this.state.data}/>
 
+          Reviews:
           <table>
             <ReviewsList reviews={this.state.data}/>
           </table>

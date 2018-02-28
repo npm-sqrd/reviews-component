@@ -9,4 +9,4 @@ const Review = (props) => {
   )
 }
 
-export { Review };
+export default Review;
