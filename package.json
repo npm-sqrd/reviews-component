@@ -21,6 +21,7 @@
   "homepage": "https://github.com/thesilverspoon/reviews-component#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "jquery": "^3.3.1",
     "mongodb": "^2.2.34",
     "mongoose": "^5.0.7",
     "nodemon": "^1.15.1",
