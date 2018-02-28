@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:8000/restaurantsData');
 
 let getReviews = function () {
   // random length for how many reviews will render (up to 10)
-  let randomLength = Math.ceil(Math.random() * 10);
+  let randomLength = 1 + Math.ceil(Math.random() * 10);
   // random index generator
   let randomIdx = Math.floor(Math.random() * 100);
   let reviewsArray = [];
