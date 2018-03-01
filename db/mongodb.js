@@ -27,8 +27,25 @@ function insertOne(restaurant, callback) {
 }
 
 function findByRestaurantId(id, callback) {
-  Restaurant.find({ restaurantId: id }).exec(callback);
+  Restaurant.find({ restaurantId: id }).exec((err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+function findAll(callback) {
+  Restaurant.find().exec((err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
 }
 
 module.exports.insertOne = insertOne;
 module.exports.findByRestaurantId = findByRestaurantId;
+module.exports.findAll = findAll;

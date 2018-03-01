@@ -12,27 +12,48 @@ class App extends React.Component {
       data: [],
       restaurantName: '',
     }
+    this.fetch = this.fetch.bind(this);
+    this.fetchAll = this.fetchAll.bind(this);
   }
 
-  fetch(callback) {
+  fetch() {
     $.ajax({
-      url: '/restaurants/:id',
+      url: `/restaurants/81309`,
       method: 'GET',
-      dataType: 'json',
       success: (data) => {
-        // callback(data);
+        console.log('data: ', data);
         this.setState({
           data: data,
         })
       },
       error: (error) => {
-        console.error(error);
+        console.log('error: ', error);
       }
     });
   }
+
+  fetchAll() {
+    $.ajax({
+      url: '/restaurants',
+      method: 'GET',
+      // contentType: 'application/json',
+      success: (data) => {
+        console.log('data ------>', data);
+        this.setState({
+          data: data,
+        })
+      },
+      error: (error) => {
+        console.log('error: ', error);
+      }
+    });
+  }
+
   
+
   componentDidMount() {
     this.fetch();
+    // this.fetchAll();
   }
 
 

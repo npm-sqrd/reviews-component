@@ -4,7 +4,12 @@ import ReviewsList from './reviewsList.jsx';
 const Review = (props) => {
   return (
     <tr>
-      <td>{props.review.restaurantReviews}</td>
+      <td>
+        {props.reviewEntry.restaurantReviews.forEach(review => {
+          return review.review;
+        })
+      }
+      </td>
     </tr>
   )
 }
