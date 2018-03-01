@@ -10,18 +10,21 @@ class App extends React.Component {
     this.state = {
       data: []
     }
+    this.fetch = this.fetch.bind(this);
   }
 
-  fetch(callback) {
+  fetch() {
     $.ajax({
-      url: '/restaurants/:id',
+      url: '/restaurants/81309',
       method: 'GET',
       dataType: 'json',
       success: (data) => {
-        callback(data);
+        this.setState({
+          data: data
+        })
       },
       error: (error) => {
-        console.error(error);
+        console.log(error);
       }
     });
   }

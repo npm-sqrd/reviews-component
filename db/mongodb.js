@@ -7,8 +7,6 @@ mongoose.connect('mongodb://localhost/restaurantsData');
 let restaurantSchema = mongoose.Schema({
   restaurantId: Number,
   restaurantName: String,
-  // overallRating: Number,
-  // totalReviews: Number,
   restaurantReviews: [ 
   { id: Number,
     username: String, 
@@ -21,35 +19,32 @@ let restaurantSchema = mongoose.Schema({
 
 let Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-let save = function(reviews, callback) {
 
-  reviews.forEach( review => {
-    let restaurantInstance = new Restaurant({
-      restaurantId: Number,
-      restaurantName: String,
-      // overallRating: Number,
-      // totalReviews: Number,
-      restaurantReviews: [ 
-      { id: Number,
-        username: String, 
-        userCity: String,
-        userDinedDate: Date,
-        rating: Number,
-        review: String }  
-      ]
-    })
-  });
-}
 
 function insertOne(restaurant, callback) {
   Restaurant.create(restaurant, callback);
 }
 
-function findAll(restaurant, callback) {
-  Restaurant.create(restaurant, callback);
+function findByRestaurantId(id, callback) {
+  Restaurant.find({ restaurantId: id }).exec((err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
 }
-// });
 
-module.exports.save = save;
+function findAll(callback) {
+  Restaurant.find().exec((err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
 module.exports.insertOne = insertOne;
+module.exports.findByRestaurantId = findByRestaurantId;
 module.exports.findAll = findAll;
