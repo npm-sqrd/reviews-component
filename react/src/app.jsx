@@ -11,24 +11,44 @@ class App extends React.Component {
       data: []
     }
     this.fetch = this.fetch.bind(this);
+    this.fetchAll = this.fetchAll.bind(this);
   }
 
   fetch() {
     $.ajax({
       url: '/restaurants/81309',
       method: 'GET',
-      dataType: 'json',
       success: (data) => {
+        console.log('data: ', data);
         this.setState({
           data: data
         })
       },
       error: (error) => {
-        console.log(error);
+        console.log('error: ', error);
       }
     });
   }
   
+
+  fetchAll() {
+    $.ajax({
+      url: '/restaurants',
+      method: 'GET',
+      // contentType: 'application/json',
+      success: (data) => {
+        console.log('data ------>', data);
+        this.setState({
+          data: data,
+        })
+      },
+      error: (error) => {
+        console.log('error: ', error);
+      }
+    });
+  }
+
+
   componentDidMount() {
     this.fetch();
   }
