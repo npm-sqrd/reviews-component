@@ -14,7 +14,7 @@ class App extends React.Component {
 
   fetch(callback) {
     $.ajax({
-      url: '/restaurants/:id/reviews',
+      url: '/restaurants/:id',
       method: 'GET',
       dataType: 'json',
       success: (data) => {

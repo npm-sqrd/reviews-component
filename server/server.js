@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // root dir + index.html
 app.use(express.static(__dirname + '/../react/dist'));
 
-app.get('/restaurants/:id/reviews', (request, response) => {
+app.get('/restaurants/:id', (request, response) => {
   db.findAll(request, (err, results) => {
     if (err) {
       console.log(err);
