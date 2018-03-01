@@ -16,12 +16,12 @@ class App extends React.Component {
 
   fetch() {
     $.ajax({
-      url: '/restaurants/81309',
+      url: `/restaurants/81309`,
       method: 'GET',
       success: (data) => {
         console.log('data: ', data);
         this.setState({
-          data: data
+          data: data,
         })
       },
       error: (error) => {
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
   
 
-  fetchAll() {
+   fetchAll() {
     $.ajax({
       url: '/restaurants',
       method: 'GET',
@@ -47,7 +47,6 @@ class App extends React.Component {
       }
     });
   }
-
 
   componentDidMount() {
     this.fetch();
