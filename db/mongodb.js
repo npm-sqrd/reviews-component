@@ -7,8 +7,6 @@ mongoose.connect('mongodb://localhost/restaurantsData');
 let restaurantSchema = mongoose.Schema({
   restaurantId: Number,
   restaurantName: String,
-  // overallRating: Number,
-  // totalReviews: Number,
   restaurantReviews: [ 
   { id: Number,
     username: String, 
@@ -20,6 +18,7 @@ let restaurantSchema = mongoose.Schema({
 });
 
 let Restaurant = mongoose.model('Restaurant', restaurantSchema);
+
 
 
 function insertOne(restaurant, callback) {
