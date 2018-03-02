@@ -1,0 +1,52 @@
+.restaurantName {
+  border: 2px solid black;
+  background-color: yellow;
+  height: 30px;
+  width: 950px;
+  font-size: 20px;
+}
+
+.overallrating {
+  border: 2px solid black;
+  background-color: maroon;
+  height: 30px;
+  width: 950px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.user {
+  background-color: aqua;
+  border: 1px solid lime;
+  height: 25px;
+  width: 950px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.ratings {
+  background-color: lime;
+  border: 1px solid lime;
+  height: 25px;
+  width: 950px;
+  font-size: 1rem;
+}
+
+.review {
+  background-color: teal;
+  border: 1px solid lime;
+  height: 80px;
+  width: 950px;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
