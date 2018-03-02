@@ -23,5 +23,17 @@ app.get('/restaurants/:id', (request, response) => {
   })
 });
 
+app.get('/restaurants', (request, response) => {
+  db.findAll((err, results) => {
+    if (err) {
+      console.log('error!!!', err);
+      response.sendStatus(500);
+    } else {
+      console.log('results ----->', results);
+      response.json(results);
+    }
+  })
+});
+
 app.listen(3000, () => console.log('Server Up on port 3000.'));
 

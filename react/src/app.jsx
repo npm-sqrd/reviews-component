@@ -29,7 +29,26 @@ class App extends React.Component {
       }
     });
   }
+
+  fetchAll() {
+    $.ajax({
+      url: '/restaurants',
+      method: 'GET',
+      // contentType: 'application/json',
+      success: (data) => {
+        console.log('data ------>', data);
+        this.setState({
+          data: data,
+        })
+      },
+      error: (error) => {
+        console.log('error: ', error);
+      }
+    });
+  }
+
   
+
 
    fetchAll() {
     $.ajax({
@@ -50,6 +69,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetch();
+    // this.fetchAll();
   }
 
 
