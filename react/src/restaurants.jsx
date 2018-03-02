@@ -4,7 +4,6 @@ import ReviewsList from './reviewsList.jsx';
 const Restaurants = (props) => {
   return (
     <div>
-      Reviews:
       {props.restaurantsList.map(restaurant => {
         return (
           <ReviewsList reviews={restaurant.restaurantReviews} />

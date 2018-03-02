@@ -2,12 +2,16 @@ import React from 'react';
 
 const OverallRatings = (props) => {
   return (
-    <div>{props.restaurants.map(restaurant => {
+    <div>
+      {props.restaurants.map(restaurant => {
       return(
-        <div>{restaurant.restaurantName} Ratings and Reviews: </div>
+      <div>
+        <div className='restaurantName'>{restaurant.restaurantName} Ratings and Reviews </div>
+        <div className='overallrating'>3.0 Overall Rating</div>
+      </div>   
         )
       })} 
-    </div>   
+    </div>
   )
 }
 
