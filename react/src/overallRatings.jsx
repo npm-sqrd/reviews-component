@@ -11,4 +11,4 @@ const OverallRatings = (props) => {
   )
 }
 
-export { OverallRatings };
+export default OverallRatings;

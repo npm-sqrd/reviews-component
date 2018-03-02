@@ -15,4 +15,4 @@ const ReviewsList = (props) => {
   );
 }
 
-export { ReviewsList };
+export default ReviewsList;
