@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-<<<<<<< HEAD
-import { OverallRatings } from './overallRatings.jsx';
-import { ReviewsList } from './reviewsList.jsx';
-=======
 // import css from './reviews.css';
 import OverallRatings from './overallRatings.jsx';
 import Restaurants from './restaurants.jsx';
 
->>>>>>> ReactUpdates
 
 class App extends React.Component {
   constructor(props) {
@@ -84,16 +79,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>Review Component</h1>
-<<<<<<< HEAD
-          <OverallRatings />
-
-          <table>
-            <ReviewsList reviews={this.state.data}/>
-          </table>
-=======
         <OverallRatings restaurants={this.state.data}/>
         <Restaurants restaurantsList={this.state.data}/>
->>>>>>> ReactUpdates
       </div>
     );
   }
