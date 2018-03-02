@@ -1,17 +1,18 @@
 import React from 'react';
-import Review from './review.jsx';
+import ReviewEntry from './reviewEntry.jsx';
+
 
 const ReviewsList = (props) => {
-  // map over for each review
-  return (
-    <tbody>
+
+    return (
+    <div>
       {props.reviews.map(review => {
         return (
-          <Review reviewEntry={review}/>
+          <ReviewEntry review={review} />
         )
       })}
-    </tbody>
+    </div>
   );
-};
+}
 
 export { ReviewsList };

@@ -1,6 +1,6 @@
 import React from 'react';
-import ReviewsList from './reviewsList.jsx';
 
+<<<<<<< HEAD
 class OverallRatings extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +19,17 @@ class OverallRatings extends React.Component {
       </div>
     );
   };
+=======
+const OverallRatings = (props) => {
+  return (
+    <div>{props.restaurants.map(restaurant => {
+      return(
+        <div>{restaurant.restaurantName} Ratings and Reviews: </div>
+        )
+      })} 
+    </div>   
+  )
+>>>>>>> ReactUpdates
 }
 
 export { OverallRatings };
