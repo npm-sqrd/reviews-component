@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 // import css from './reviews.css';
 import OverallRatings from './overallRatings.jsx';
-import ReviewsList from './reviewsList.jsx';
+import Restaurants from './restaurants.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends React.Component {
 
   fetch() {
     $.ajax({
-      url: `/restaurants/81309`,
+      url: `/restaurants/90976`,
       method: 'GET',
       success: (data) => {
         console.log('data: ', data);
@@ -59,15 +60,10 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className='app'>
+      <div>
         <h1>Review Component</h1>
-          <div>{this.state.restaurantName} Ratings and Reviews:</div>
-          <OverallRatings ratings={this.state.data}/>
-
-          Reviews:
-          <table>
-            <ReviewsList reviews={this.state.data}/>
-          </table>
+        <OverallRatings restaurants={this.state.data}/>
+        <Restaurants restaurantsList={this.state.data}/>
       </div>
     );
   }
