@@ -12,7 +12,6 @@ class App extends React.Component {
       data: []
     }
     this.fetch = this.fetch.bind(this);
-    this.fetchAll = this.fetchAll.bind(this);
   }
 
   fetch() {
@@ -31,26 +30,8 @@ class App extends React.Component {
     });
   }
 
-  fetchAll() {
-    $.ajax({
-      url: '/restaurants',
-      method: 'GET',
-      // contentType: 'application/json',
-      success: (data) => {
-        console.log('data ------>', data);
-        this.setState({
-          data: data,
-        })
-      },
-      error: (error) => {
-        console.log('error: ', error);
-      }
-    });
-  }
-
   componentDidMount() {
     this.fetch();
-    // this.fetchAll();
   }
 
 
