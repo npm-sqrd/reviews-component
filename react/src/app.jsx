@@ -4,7 +4,6 @@ import $ from 'jquery';
 import OverallRatings from './overallRatings.jsx';
 import Restaurants from './restaurants.jsx';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +15,7 @@ class App extends React.Component {
 
   fetch() {
     $.ajax({
-      url: `/restaurants/86567`,
+      url: `/restaurants/90976`,
       method: 'GET',
       success: (data) => {
         console.log('data: ', data);
@@ -33,7 +32,6 @@ class App extends React.Component {
   componentDidMount() {
     this.fetch();
   }
-
 
   render () {
     return (
