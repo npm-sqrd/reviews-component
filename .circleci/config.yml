@@ -9,14 +9,8 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/mongo:2.2.34
-        environment:
-          TZ: "/usr/share/zoneinfo/America/Los_Angeles"
 
     working_directory: ~/repo
-
-    environment:
-      TZ: "/usr/share/zoneinfo/America/Los_Angeles"
-
 
     steps:
       - checkout

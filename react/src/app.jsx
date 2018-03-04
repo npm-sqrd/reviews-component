@@ -18,7 +18,7 @@ class App extends React.Component {
       url: `/restaurants/90976`,
       method: 'GET',
       success: (data) => {
-        console.log('data: ', data);
+        // console.log('data: ', data);
         this.setState({
           data: data,
         })
@@ -43,4 +43,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+module.exports = App;
+// ReactDOM.render(<App />, document.getElementById('app'));
