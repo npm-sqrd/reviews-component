@@ -3,7 +3,7 @@ const reviewsList = require('./sample_reviews.js');
 const mongoose = require('mongoose');
 const db = require('./db/mongodb.js');
 
-mongoose.connect('mongodb://localhost:8000/restaurantsData');
+mongoose.connect('mongodb://localhost/restaurantsData');
 
 let getReviews = function () {
   // random length for how many reviews will render (up to 10)
