@@ -6,13 +6,13 @@ const db = require('./db/mongodb.js');
 mongoose.connect('mongodb://localhost/restaurantsData');
 
 let getReviews = function () {
-  // random length for how many reviews will render (up to 10)
-  let randomLength = 1 + Math.ceil(Math.random() * 10);
-  // random index generator
-  let randomIdx = Math.floor(Math.random() * 100);
+  // random length for how many reviews will render with minimum of 3 reviews
+  let randomLength = Math.ceil(Math.random() * 10) + 3;
   let reviewsArray = [];
   // looping up to the random length
   for (var i = 1; i < randomLength; i++) {
+    // random index generator
+    let randomIdx = Math.floor(Math.random() * 100);
     // push random comments into array using randomIdx
     reviewsArray.push(reviewsList[randomIdx]);
   }

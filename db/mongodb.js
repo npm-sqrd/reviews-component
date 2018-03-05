@@ -8,7 +8,8 @@ let restaurantSchema = mongoose.Schema({
   restaurantId: Number,
   restaurantName: String,
   restaurantReviews: [ 
-  { id: Number,
+  { 
+    // id: Number,
     username: String, 
     city: String,
     dinedDate: Date,
