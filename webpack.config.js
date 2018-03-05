@@ -14,12 +14,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
-        options: {
-          eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
-        },
+        // options: {
+        //   eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
+          // },
       },
     ],
   },
 };
 
-module.exports = config;
