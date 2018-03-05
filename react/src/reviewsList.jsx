@@ -1,10 +1,8 @@
 import React from 'react';
 import ReviewEntry from './reviewEntry.jsx';
 
-
 const ReviewsList = (props) => {
-
-    return (
+  return (
     <div>
       {props.reviews.map(review => {
         return (

@@ -19,8 +19,6 @@ let restaurantSchema = mongoose.Schema({
 
 let Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-
-
 function insertOne(restaurant, callback) {
   Restaurant.create(restaurant, callback);
 }
@@ -35,16 +33,5 @@ function findByRestaurantId(id, callback) {
   });
 }
 
-function findAll(callback) {
-  Restaurant.find().exec((err, results) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, results);
-    }
-  });
-}
-
 module.exports.insertOne = insertOne;
 module.exports.findByRestaurantId = findByRestaurantId;
-module.exports.findAll = findAll;

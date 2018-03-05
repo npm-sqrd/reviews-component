@@ -4,7 +4,6 @@ import $ from 'jquery';
 import OverallRatings from './overallRatings.jsx';
 import Restaurants from './restaurants.jsx';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -12,32 +11,14 @@ class App extends React.Component {
       data: []
     }
     this.fetch = this.fetch.bind(this);
-    this.fetchAll = this.fetchAll.bind(this);
   }
 
   fetch() {
     $.ajax({
-      url: `/restaurants/86567`,
+      url: `/restaurants/90976`,
       method: 'GET',
       success: (data) => {
-        console.log('data: ', data);
-        this.setState({
-          data: data,
-        })
-      },
-      error: (error) => {
-        console.log('error: ', error);
-      }
-    });
-  }
-
-  fetchAll() {
-    $.ajax({
-      url: '/restaurants',
-      method: 'GET',
-      // contentType: 'application/json',
-      success: (data) => {
-        console.log('data ------>', data);
+        // console.log('data: ', data);
         this.setState({
           data: data,
         })
@@ -50,9 +31,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetch();
-    // this.fetchAll();
   }
-
 
   render () {
     return (
@@ -64,4 +43,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+module.exports = App;
+// ReactDOM.render(<App />, document.getElementById('app'));

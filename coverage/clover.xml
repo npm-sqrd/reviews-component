@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1520202627878" clover="3.2.0">
+  <project timestamp="1520202627878" name="All files">
+    <metrics statements="52" coveredstatements="33" conditionals="4" coveredconditionals="0" methods="19" coveredmethods="6" elements="75" coveredelements="39" complexity="0" loc="52" ncloc="52" packages="4" files="9" classes="9">
+      <package name="reviews-component">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="sampleData.js" path="/Users/michaelngo/Desktop/reviews-component/sampleData.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="2" type="stmt"/>
+        </file>
+        <file name="sample_reviews.js" path="/Users/michaelngo/Desktop/reviews-component/sample_reviews.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="reviews-component.db">
+        <metrics statements="13" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="mongodb.js" path="/Users/michaelngo/Desktop/reviews-component/db/mongodb.js">
+          <metrics statements="13" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="2" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="36" count="2" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="reviews-component.react.src">
+        <metrics statements="20" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="5"/>
+        <file name="app.jsx" path="/Users/michaelngo/Desktop/reviews-component/react/src/app.jsx">
+          <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+        </file>
+        <file name="overallRatings.jsx" path="/Users/michaelngo/Desktop/reviews-component/react/src/overallRatings.jsx">
+          <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+        </file>
+        <file name="restaurants.jsx" path="/Users/michaelngo/Desktop/reviews-component/react/src/restaurants.jsx">
+          <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+        </file>
+        <file name="reviewEntry.jsx" path="/Users/michaelngo/Desktop/reviews-component/react/src/reviewEntry.jsx">
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+        </file>
+        <file name="reviewsList.jsx" path="/Users/michaelngo/Desktop/reviews-component/react/src/reviewsList.jsx">
+          <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="reviews-component.server">
+        <metrics statements="17" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <file name="server.js" path="/Users/michaelngo/Desktop/reviews-component/server/server.js">
+          <metrics statements="17" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

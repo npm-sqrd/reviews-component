@@ -10,15 +10,16 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
-        // options: {
-        //   eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
-        // },
+        options: {
+          eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
+        },
       },
     ],
   },
 };
 
+module.exports = config;
