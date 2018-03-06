@@ -40,6 +40,7 @@ const getReviews = function () {
 
 const seedDb = function (restaurantsData) {
   for (var i = 0; i < restaurantsData.length; i++) {
+    const restaurant = restaurantsData[i];
     const eachRestaurant = {
       restaurantId: restaurant.id,
       restaurantName: restaurant.name,
