@@ -52,11 +52,15 @@ npm run seed-db
 
 Starting webpack:
 
-npm start
+npm run webpack
+
+Create Production bundle:
+
+npm run build
 
 Starting server:
 
-npm run nodemon
+npm start
 
 Open client in browser at: 
 
