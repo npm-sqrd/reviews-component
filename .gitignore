@@ -1,4 +1,5 @@
 bundle.js
+bundle-prod.js
 node_modules
 img
 coverage

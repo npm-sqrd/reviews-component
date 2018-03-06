@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../react/dist'));
 
 app.get('/restaurants/:id', (request, response) => {
+  response.set({ 'Access-Control-Allow-Origin' : '*' });
   db.findByRestaurantId(request.params.id, (err, results) => {
     if (err) {
       console.log(err);
