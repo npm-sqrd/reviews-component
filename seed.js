@@ -20,10 +20,26 @@ const getReviews = function () {
   return reviewsArray;
 };
 
+// const seedDb = function (restaurantsData) {
+//   // looping thru restaurants
+//   restaurantsData.forEach((restaurant) => {
+//     // for a restaurant, use schema to set values
+//     const eachRestaurant = {
+//       restaurantId: restaurant.id,
+//       restaurantName: restaurant.name,
+//       restaurantReviews: getReviews(),
+//     };
+//     // save each one into db
+//     db.insertOne(eachRestaurant, (error) => {
+//       if (error) {
+//         throw error;
+//       }
+//     });
+//   });
+// };
+
 const seedDb = function (restaurantsData) {
-  // looping thru restaurants
-  restaurantsData.forEach((restaurant) => {
-    // for a restaurant, use schema to set values
+  for (var i = 0; i < restaurantsData.length; i++) {
     const eachRestaurant = {
       restaurantId: restaurant.id,
       restaurantName: restaurant.name,
@@ -35,8 +51,12 @@ const seedDb = function (restaurantsData) {
         throw error;
       }
     });
-  });
+    if (i === restaurantsData.length - 1) {
+      mongoose.disconnect();
+    }
+  }
 };
 
 // seed data into db
-// seedDb(restaurantsData);
+seedDb(restaurantsData);
+
