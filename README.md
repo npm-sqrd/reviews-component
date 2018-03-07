@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/thesilverspoon/reviews-component/tree/master.svg?style=svg)](https://circleci.com/gh/thesilverspoon/reviews-component/tree/master)
+
 # Front End Capstone - Open Table: Reviews Component
 
 Project resembles a clone of Open Table's reviews component
