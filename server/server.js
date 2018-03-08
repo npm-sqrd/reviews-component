@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/mongodb');
 const mongoose = require('mongoose');
+const loginConfig = require('../db/login.config');
 // const fs = require('fs');
 // const _ = require('underscore');
 
 const app = express();
 
-mongoose.connect('mongodb://Miken:M1keon0!@ds259768.mlab.com:59768/restaurants_reviews');
+mongoose.connect(`mongodb://${loginConfig.username}:${loginConfig.password}@ds259768.mlab.com:59768/restaurants_reviews`);
 
 app.use(bodyParser.json());
 
