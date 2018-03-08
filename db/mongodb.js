@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const sampleData = require('../sampleData');
 const reviews = require('../sample_reviews');
 
-mongoose.connect(`mongodb://Miken:1234@ds261678.mlab.com:61678/restaurants_reviews`);
+mongoose.connect(`mongodb://Miken:1234@ds261828.mlab.com:61828/restaurants_reviews`);
 
 let restaurantSchema = mongoose.Schema({
   restaurantId: Number,
