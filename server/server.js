@@ -2,28 +2,31 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/mongodb');
 const mongoose = require('mongoose');
+// const fs = require('fs');
+// const _ = require('underscore');
 
-var app = express();
+const app = express();
 
-mongoose.connect('mongodb://localhost/restaurantsData');
+mongoose.connect('mongodb://Miken:M1keon0!@ds259768.mlab.com:59768/restaurants_reviews');
 
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../react/dist'));
 
 app.get('/restaurants/:id', (request, response) => {
-  response.set({ 'Access-Control-Allow-Origin' : '*' });
+  response.set({ 'Access-Control-Allow-Origin': '*' });
   db.findByRestaurantId(request.params.id, (err, results) => {
     if (err) {
       console.log(err);
       response.sendStatus(500);
     } else {
-      console.log(results);
       response.json(results);
     }
-  })
+  });
 });
 
-app.listen(3000, () => console.log('Server Up on port 3000.'));
+const port = process.env.PORT || 8081;
 
-module.exports = app; 
+app.listen(port, () => { console.log(`Server Up on port: ${port}`); });
+
+module.exports = app;

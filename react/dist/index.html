@@ -7,6 +7,15 @@
 </head>
 <body>
   <div id='app'></div>
-  <script type='text/javascript' src='bundle.js'></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script type='text/javascript' src='bundle-prod.js'></script>
+  <script>
+    const num = window.location.search.slice(4) || 305;
+    ReactDOM.render(
+    React.createElement(App, { id: num }, null),
+      document.getElementById('app'),
+    );
+   </script>
 </body>
 </html>

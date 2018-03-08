@@ -16,7 +16,7 @@ class App extends React.Component {
 
   fetch() {
     $.ajax({
-      url: `http://localhost:3000/restaurants/${this.state.id}`,
+      url: `/restaurants/${this.state.id}`,
       method: 'GET',
       success: (data) => {
         console.log('data: ', data);
