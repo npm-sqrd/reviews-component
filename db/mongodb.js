@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const sampleData = require('../sampleData');
 const reviews = require('../sample_reviews');
+const loginConfig = require('./login.config');
 
-mongoose.connect('mongodb://localhost/restaurantsData');
+mongoose.connect(`mongodb://${loginConfig.username}:${loginConfig.password}@ds259768.mlab.com:59768/restaurants_reviews`);
 
 let restaurantSchema = mongoose.Schema({
   restaurantId: Number,
