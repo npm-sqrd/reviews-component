@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const sampleData = require('../sampleData');
 const reviews = require('../sample_reviews');
-const login = require('./login');
+const login = require('./login.config');
 
 mongoose.connect(`mongodb://${login.username}:${login.password}@ds259768.mlab.com:59768/restaurants_reviews`);
 
