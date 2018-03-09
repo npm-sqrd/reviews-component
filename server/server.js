@@ -1,13 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/mongodb');
-const mongoose = require('mongoose');
 // const fs = require('fs');
 // const _ = require('underscore');
 
 const app = express();
-
-// mongoose.connect(`mongodb://Miken:1234@ds261828.mlab.com:61828/restaurants_reviews`);
 
 app.use(bodyParser.json());
 

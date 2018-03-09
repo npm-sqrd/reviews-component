@@ -29,9 +29,9 @@ const OverallRatings = (props) => {
           </div>
         </div>   
         )
-      })} 
+      })}
     </div>
-  )
-}
+  );
+};
 
 export default OverallRatings;

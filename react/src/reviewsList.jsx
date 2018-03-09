@@ -11,6 +11,6 @@ const ReviewsList = (props) => {
       })}
     </div>
   );
-}
+};
 
 export default ReviewsList;
