@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewsList from './reviewsList.jsx';
+import ReviewsList from './reviewsList';
 
 const Restaurants = (props) => {
   return (

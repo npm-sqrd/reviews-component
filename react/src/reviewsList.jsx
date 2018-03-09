@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewEntry from './reviewEntry.jsx';
+import ReviewEntry from './reviewEntry';
 
 const ReviewsList = (props) => {
   return (
@@ -11,6 +11,6 @@ const ReviewsList = (props) => {
       })}
     </div>
   );
-}
+};
 
 export default ReviewsList;
