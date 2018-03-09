@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewEntry from './reviewEntry';
+import ReviewEntry from './reviewEntry.jsx';
 
 const ReviewsList = (props) => {
   return (

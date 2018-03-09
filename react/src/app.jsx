@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
-import OverallRatings from './overallRatings';
-import Restaurants from './restaurants';
+import OverallRatings from './overallRatings.jsx';
+import Restaurants from './restaurants.jsx';
 
 class App extends React.Component {
   constructor(props) {
