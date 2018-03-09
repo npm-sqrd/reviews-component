@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://Miken:1234@ds261828.mlab.com:61828/restaurants_reviews');
+mongoose.connect('mongodb://Miken:1234@ds263138.mlab.com:63138/restaurants_reviews');
 
 const restaurantSchema = mongoose.Schema({
   restaurantId: Number,
