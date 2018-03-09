@@ -23,6 +23,7 @@
   "homepage": "https://github.com/thesilverspoon/reviews-component#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv-webpack": "^1.5.5",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
     "mongodb": "^2.2.34",

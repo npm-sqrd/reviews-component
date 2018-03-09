@@ -14,9 +14,11 @@ class App extends React.Component {
     this.fetch = this.fetch.bind(this);
   }
 
+
   fetch() {
+    const env = process.env.aws ? process.env.aws : '';
     $.ajax({
-      url: `/restaurants/${this.state.id}`,
+      url: `${env}/restaurants/${this.state.id}`,
       method: 'GET',
       success: (data) => {
         console.log('data: ', data);

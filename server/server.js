@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect(`mongodb://Miken:1234@ds261828.mlab.com:61828/restaurants_reviews`);
+// mongoose.connect(`mongodb://Miken:1234@ds261828.mlab.com:61828/restaurants_reviews`);
 
 app.use(bodyParser.json());
 
