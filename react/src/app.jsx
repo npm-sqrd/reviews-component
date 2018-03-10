@@ -36,7 +36,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='appBox'>
         <OverallRatings restaurants={this.state.data} />
         <Restaurants restaurantsList={this.state.data} />
       </div>
