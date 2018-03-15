@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://Miken:1234@ds263138.mlab.com:63138/restaurants_reviews');
+mongoose.connect('mongodb://localhost/restaurants_reviews');
 
 const restaurantSchema = mongoose.Schema({
-  restaurantId: Number,
-  restaurantName: String,
+  restaurantId: { type: Number, required: true, unique: true },
+  restaurantName: { type: String, required: true },
   restaurantReviews: [
     {
-      username: String,
-      city: String,
-      dinedDate: Date,
-      rating: Number,
-      review: String,
+      username: { type: String, required: true },
+      city: { type: String, required: true },
+      dinedDate: { type: Date, required: true },
+      rating: { type: Number, required: true },
+      review: { type: String, required: true },
     },
   ],
 });
