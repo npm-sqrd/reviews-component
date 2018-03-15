@@ -1,31 +1,38 @@
+const restaurantsData = require('./sampleData.js');
+const reviewsList = require('./sample_reviews.js');
 const mongoose = require('mongoose');
-const restaurantsData = require('./restaurant-data');
 const db = require('./db/mongodb.js');
 
+const getReviews = () => {
+  // random length for how many reviews will render with minimum of 3 reviews
+  const randomLength = Math.ceil(Math.random() * 10) + 3;
+  const reviewsArray = [];
+  // looping up to the random length
+  for (let i = 1; i < randomLength; i++) {
+    // random index generator
+    const randomIdx = Math.floor(Math.random() * 100);
+    // push random comments into array using randomIdx
+    reviewsArray.push(reviewsList[randomIdx]);
+  }
+  // returns array of reviews
+  return reviewsArray;
+};
+
 let counter = 0;
-
-restaurantsData.forEach((x) => {
+restaurantsData.forEach((restaurant) => {
+  // for a restaurant, use schema to set values
   const eachRestaurant = {
-    restaurantId: x.id,
-    restaurantName: x.name,
-    restaurantReviews: [
-      {
-        username: x.reviews[0].username,
-        city: x.reviews[0].city,
-        dinedDate: x.reviews[0].dinedDate,
-        rating: x.reviews[0].rating,
-        review: x.reviews[0].review,
-      },
-    ],
+    restaurantId: restaurant.id,
+    restaurantName: restaurant.name,
+    restaurantReviews: getReviews(),
   };
-
-  db.insertOne(eachRestaurant, (err) => {
-    if (err) {
-      console.log('Data insert error', err);
+  // save each one into db
+  db.insertOne(eachRestaurant, (error) => {
+    if (error) {
+      throw error;
     } else {
       counter++;
-      console.log('DATA INSERTED', counter);
-      if (counter === 1000000) {
+      if (counter === 119) {
         mongoose.disconnect();
       }
     }
