@@ -39,21 +39,23 @@ const randomData = (total) => {
     'Cras ut sem vel lectus rhoncus imperdiet a at leo.', 'Maecenas congue leo at tempor lacinia.', 'Morbi nec felis sagittis, pharetra lorem quis, pretium nulla.', 'Quisque efficitur leo sed lacus egestas sagittis.', 'Donec eu lacus sed lacus elementum bibendum non sed magna.', 'Etiam a risus luctus, lacinia dui in, varius lorem.', 'Etiam ut augue sed justo eleifend ullamcorper.', 'Sed ut dolor in nibh laoreet posuere non quis nunc.', 'Vestibulum id odio vel turpis dictum commodo.', 'Nullam id metus imperdiet, bibendum urna condimentum, aliquet elit.', 'Suspendisse sit amet erat vitae quam vestibulum finibus.'];
 
   for (let i = 0; i <= total; i += 1) {
-    const obj = {};
+    // const obj = {};
     const index1 = Math.floor(Math.random() * dataRestaurantName.length);
     const index2 = Math.floor(Math.random() * dataUsername.length);
     const index3 = Math.floor(Math.random() * dataCity.length);
     const index4 = Math.floor(Math.random() * dataReview.length);
-    obj.id = i;
-    obj.name = dataRestaurantName[index1];
-    obj.reviews = [
-      {
-        username: dataUsername[index2],
-        city: dataCity[index3],
-        dinedDate: getRandomTime(),
-        rating: getRandomInteger(0, 6),
-        review: dataReview[index4],
-      }];
+    const obj = {
+      _id: i,
+      restaurantName: dataRestaurantName[index1],
+      restaurantReviews: [
+        {
+          username: dataUsername[index2],
+          city: dataCity[index3],
+          dinedDate: getRandomTime(),
+          rating: getRandomInteger(0, 6),
+          review: dataReview[index4],
+        }],
+    };
     restoData[restoData.length] = obj;
   }
 
