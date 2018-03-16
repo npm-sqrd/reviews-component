@@ -38,11 +38,8 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
 
   const write = () => {
     let flag = true;
-    while (i <= end && flag) {
+    while (i < end && flag) {
       const index1 = Math.floor(Math.random() * dataRestaurantName.length);
-      const index2 = Math.floor(Math.random() * dataUsername.length);
-      const index3 = Math.floor(Math.random() * dataCity.length);
-      const index4 = Math.floor(Math.random() * dataReview.length);
       const restoObj = {
         restaurantId: i,
         restaurantName: dataRestaurantName[index1] + i,
@@ -51,6 +48,9 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
       // generate a random number of reviews
       const randomIntReview = getRandomInt(1, 5);
       for (let j = 0; j < randomIntReview; j += 1) {
+        const index2 = Math.floor(Math.random() * dataUsername.length);
+        const index3 = Math.floor(Math.random() * dataCity.length);
+        const index4 = Math.floor(Math.random() * dataReview.length);
         const review = {
           username: dataUsername[index2],
           city: dataCity[index3],
@@ -76,4 +76,4 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
   write();
 };
 
-randomDataGene(0, 10000000, writeStream, 'utf8', () => console.log('COMPLETED'));
+randomDataGene(0, 10, writeStream, 'utf8', () => console.log('COMPLETED'));
