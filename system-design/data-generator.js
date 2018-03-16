@@ -76,4 +76,4 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
   write();
 };
 
-randomDataGene(0, 10, writeStream, 'utf8', () => console.log('COMPLETED'));
+randomDataGene(0, 10000000, writeStream, 'utf8', () => console.log('COMPLETED'));
