@@ -18,9 +18,9 @@ class App extends React.Component {
   }
 
   fetch() {
-    const env = process.env.aws ? process.env.aws : '';
+    // const env = process.env.aws ? process.env.aws : '';
     $.ajax({
-      url: `${env}/restaurants/${this.state.id}`,
+      url: `/restaurants/${this.state.id}`,
       method: 'GET',
       success: (data) => {
         this.setState({
