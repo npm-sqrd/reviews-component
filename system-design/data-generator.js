@@ -1,11 +1,7 @@
 const fs = require('fs');
 
 // random integer between two values where min and max are inclusive
-const getRandomInteger = (min, max) => {
-  const minInt = Math.ceil(min);
-  const maxInt = Math.floor(max);
-  return Math.floor(Math.random() * (maxInt - minInt)) + minInt;
-};
+const getRandomInt = (min, max) => Math.floor(Math.random() * ((max - min) + 1)) + min;
 
 // generate random date format mm/dd/yy
 const getRandomTime = () => {
@@ -25,12 +21,12 @@ const getRandomTime = () => {
   };
   const validateDoubleDigits = num => (num < 10 ? `0${num}` : num);
   const month = Math.floor(Math.random() * 12) + 1;
-  const day = validateDoubleDigits(getRandomInteger(1, monthDays[month] + 1));
-  const timeStamp = `${validateDoubleDigits(month)}/${day}/${getRandomInteger(2017, 2019)}`;
+  const day = validateDoubleDigits(getRandomInt(1, monthDays[month] + 1));
+  const timeStamp = `${validateDoubleDigits(month)}/${day}/${getRandomInt(2017, 2018)}`;
   return timeStamp;
 };
 
-const writeStream = fs.createWriteStream('sampleDatas/data.json');
+const writeStream = fs.createWriteStream('system-design/json-file/restaurant-data.json');
 
 const randomDataGene = (start, end, stream, encoding, callback) => {
   let i = start;
@@ -42,35 +38,42 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
 
   const write = () => {
     let flag = true;
-    while (i > end && flag) {
+    while (i <= end && flag) {
       const index1 = Math.floor(Math.random() * dataRestaurantName.length);
       const index2 = Math.floor(Math.random() * dataUsername.length);
       const index3 = Math.floor(Math.random() * dataCity.length);
       const index4 = Math.floor(Math.random() * dataReview.length);
-      const obj = {
+      const restoObj = {
         restaurantId: i,
-        restaurantName: dataRestaurantName[index1],
-        restaurantReviews: [
-          {
-            username: dataUsername[index2],
-            city: dataCity[index3],
-            dinedDate: getRandomTime(),
-            rating: getRandomInteger(0, 6),
-            review: dataReview[index4],
-          }],
+        restaurantName: dataRestaurantName[index1] + i,
+        restaurantReviews: [],
       };
-      i -= 1;
+      // generate a random number of reviews
+      const randomIntReview = getRandomInt(1, 5);
+      for (let j = 0; j < randomIntReview; j += 1) {
+        const review = {
+          username: dataUsername[index2],
+          city: dataCity[index3],
+          dinedDate: getRandomTime(),
+          rating: getRandomInt(0, 5),
+          review: dataReview[index4],
+        };
+        // push reviews in restoObj
+        restoObj.restaurantReviews.push(review);
+      }
+
+      i += 1;
       if (i === end) {
-        stream.write(`${JSON.stringify(obj)}\n`, encoding, callback);
+        stream.write(`${JSON.stringify(restoObj)}\n`, encoding, callback);
       } else {
-        flag = stream.write(`${JSON.stringify(obj)}\n`, encoding);
+        flag = stream.write(`${JSON.stringify(restoObj)}\n`, encoding);
       }
     }
-    if (i > end) {
+    if (i < end) {
       stream.once('drain', write);
     }
   };
   write();
 };
 
-randomDataGene(0, 100, writeStream, 'utf8', () => console.log('COMPLETED'));
+randomDataGene(0, 10000000, writeStream, 'utf8', () => console.log('COMPLETED'));
