@@ -9,7 +9,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "seed-db": "node seed.js",
-    "build": "./node_modules/.bin/webpack --config ./webpack.prod.config.js",
+    "build": "./node_modules/.bin/webpack --config ./webpack.config.js",
     "create-json": "node system-design/data-generator.js",
     "mongo-import": "mongoimport --db restaurants_reviews --collection restaurants --file system-design/json-file/restaurant-data.json --numInsertionWorkers 20"
   },

@@ -58,7 +58,7 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
           rating: getRandomInt(0, 5),
           review: dataReview[index4],
         };
-        // push reviews in restoObj
+        // push review in restoObj
         restoObj.restaurantReviews.push(review);
       }
 
