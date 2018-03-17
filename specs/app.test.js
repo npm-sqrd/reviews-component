@@ -10,10 +10,10 @@ import App from '../react/src/app.jsx';
 Enzyme.configure({ adapter: new Adapter() });
 
 function setupApp() {
-  const props = {placeholder: 'test', value: 'test value'};
+  const props = {placeholder: 'test', value: 'test value' };
   const enzymeWrapper = shallow(<App {...props} />);
 
-  return {enzymeWrapper, props}
+  return { enzymeWrapper, props}
 }
 
 describe('App Component', () => {

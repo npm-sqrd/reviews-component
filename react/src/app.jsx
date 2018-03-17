@@ -11,7 +11,7 @@ class App extends React.Component {
       id: props.id,
       data: [],
     };
-    this.fetch = this.fetch.bind(this);
+    // this.fetch = this.fetch.bind(this);
   }
 
   componentDidMount() {

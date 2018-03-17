@@ -12,6 +12,7 @@ describe('DB Test', () => {
     });
 
     db.once('open', () => {
+      mongoose.disconnect();
       done();
     });
   });
