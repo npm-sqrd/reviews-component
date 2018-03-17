@@ -1,5 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
+//import $ from 'jquery';
+import axios from 'axios';
 import OverallRatings from './overallRatings.jsx';
 import Restaurants from './restaurants.jsx';
 
@@ -10,28 +11,33 @@ class App extends React.Component {
       id: props.id,
       data: [],
     };
-    this.fetch = this.fetch.bind(this);
+    // this.fetch = this.fetch.bind(this);
   }
 
   componentDidMount() {
-    this.fetch();
+    // this.fetch();
+    axios.get(`/restaurants/${this.state.id}`)
+      .then((res) => {
+        this.setState({ data: res.data });
+      })
+      .catch(err => console.log(err))
   }
 
-  fetch() {
-    const env = process.env.aws ? process.env.aws : '';
-    $.ajax({
-      url: `${env}/restaurants/${this.state.id}`,
-      method: 'GET',
-      success: (data) => {
-        this.setState({
-          data: data,
-        });
-      },
-      error: (error) => {
-        console.log('error: ', error);
-      },
-    });
-  }
+  // fetch() {
+  //   // const env = process.env.aws ? process.env.aws : '';
+  //   $.ajax({
+  //     url: `/restaurants/${this.state.id}`,
+  //     method: 'GET',
+  //     success: (data) => {
+  //       this.setState({
+  //         data: data,
+  //       });
+  //     },
+  //     error: (error) => {
+  //       console.log('error: ', error);
+  //     },
+  //   });
+  // }
 
 
   render() {

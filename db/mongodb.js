@@ -14,7 +14,7 @@ const restaurantSchema = mongoose.Schema({
       review: { type: String, required: true },
     },
   ],
-});
+}).index({ id: 1, restaurantName: 1 });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
