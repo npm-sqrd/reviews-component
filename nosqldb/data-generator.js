@@ -26,7 +26,7 @@ const getRandomTime = () => {
   return timeStamp;
 };
 
-const writeStream = fs.createWriteStream('system-design/json-file/restaurant-data.json');
+const writeStream = fs.createWriteStream('nosqldb/json-file/restaurant-data.json');
 
 const randomDataGene = (start, end, stream, encoding, callback) => {
   let i = start;
