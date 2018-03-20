@@ -6,4 +6,5 @@ coverage
 coverage/
 false
 login.js
-system-design/json-file/
+nosqldb/json-file/
+sqldb/csv-file/
