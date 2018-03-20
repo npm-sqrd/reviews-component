@@ -9,6 +9,8 @@ CREATE TABLE restaurant
   restaurantName  text    NOT NULL
 );
 
+\copy restaurant(restaurantName) FROM 'sqldb/csv-file/restaurant-data.csv' DELIMITER ',' CSV
+
 CREATE TABLE review
 (
   reviewId      serial      PRIMARY KEY,
@@ -20,14 +22,8 @@ CREATE TABLE review
   restaurant_Id integer     REFERENCES restaurant (restaurantId)
 );
 
--- INSERT INTO restaurant (restaurantId, restaurantName)
---   VALUES (1, 'Tyler');
---
--- INSERT INTO review (username, city, dinedDate, rating, review)
---   VALUES ('Tyler', 'San Francisco', '03/17/2018', 4, 'dver fvfevererfg fvev vfevev');
---
--- INSERT INTO review (username, city, dinedDate, rating, review)
---   VALUES ('Matt', 'Los Angeles', '03/18/2018', 3, 'werggewg fvfevererfg ergregeg vfevev');
---
--- INSERT INTO review (username, city, dinedDate, rating, review)
---   VALUES ('Angel', 'New York', '03/19/2018', 2, 'dver gegrg fvev eretergeg');
+\copy review(username, city, dinedDate, rating, review, restaurant_Id) FROM 'sqldb/csv-file/review-data.csv' DELIMITER ',' CSV
+
+-- CREATE INDEX ON restaurant (restaurantName);
+
+-- EXPLAIN ANALYZE SELECT * FROM restaurant INNER JOIN review ON restaurant.restaurantName = 'Bergstrom-Heaney5000000' AND restaurant.restaurantId = review.restaurant_Id;

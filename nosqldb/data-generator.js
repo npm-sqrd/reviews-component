@@ -21,7 +21,7 @@ const getRandomTime = () => {
   };
   const validateDoubleDigits = num => (num < 10 ? `0${num}` : num);
   const month = Math.floor(Math.random() * 12) + 1;
-  const day = validateDoubleDigits(getRandomInt(1, monthDays[month] + 1));
+  const day = validateDoubleDigits(getRandomInt(1, monthDays[month]));
   const timeStamp = `${validateDoubleDigits(month)}/${day}/${getRandomInt(2017, 2018)}`;
   return timeStamp;
 };
