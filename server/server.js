@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../db/mongodb');
+// mongodb
+// const db = require('../db/mongodb');
+// postgresql
+const db = require('../sqldb/database');
 // const fs = require('fs');
 // const _ = require('underscore');
 
@@ -11,14 +14,18 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../react/dist`));
 
 app.get('/restaurants/:id', (request, response) => {
-  response.set({ 'Access-Control-Allow-Origin': '*' });
-  db.findByRestaurantId(request.params.id, (err, results) => {
-    if (err) {
-      console.log(err);
-      response.sendStatus(500);
-    } else {
-      response.json(results);
-    }
+  // response.set({ 'Access-Control-Allow-Origin': '*' });
+  // db.findByRestaurantId(request.params.id, (err, results) => {
+  //   if (err) {
+  //     console.log(err);
+  //     response.sendStatus(500);
+  //   } else {
+  //     response.json(results);
+  //   }
+  // });
+  db.querydb(request.params.id, (err, data) => {
+    if (err) response.sendStatus(500);
+    response.json(data.rows);
   });
 });
 
