@@ -13,8 +13,10 @@
     "coverage": "jest --coverage",
     "seed-db": "node seed.js",
     "build": "./node_modules/.bin/webpack --config ./webpack.prod.config.js",
-    "seedDb-postgres": "node sqldb/database.js",
-    "seedDb-mongo": "time node nosqldb/data-generator.js && mongoimport --db restaurants_reviews --collection restaurants --file nosqldb/json-file/restaurant-data.json --numInsertionWorkers 20"
+    "generate-csv": "node sqldb/data-generator-csv.js",
+    "seedDb-postgres": "psql postgres < sqldb/schema.sql",
+    "generate-json": "node nosqldb/data-generator.js",
+    "seedDb-mongo": "mongoimport --db restaurants_reviews --collection restaurants --file nosqldb/json-file/restaurant-data.json --numInsertionWorkers 20"
   },
   "repository": {
     "type": "git",

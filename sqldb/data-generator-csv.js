@@ -21,8 +21,8 @@ const getRandomTime = () => {
   };
   const validateDoubleDigits = num => (num < 10 ? `0${num}` : num);
   const month = Math.floor(Math.random() * 12) + 1;
-  const day = validateDoubleDigits(getRandomInt(1, monthDays[month] + 1));
-  const timeStamp = `${validateDoubleDigits(month)}/${day}/${getRandomInt(2017, 2018)}`;
+  const day = validateDoubleDigits(getRandomInt(1, monthDays[month]));
+  const timeStamp = `${getRandomInt(2017, 2018)}-${validateDoubleDigits(month)}-${day}`;
   return timeStamp;
 };
 
@@ -36,7 +36,7 @@ const randomResto = (start, end, stream, encoding, callback) => {
     let flag = true;
     while (i < end && flag) {
       const index1 = Math.floor(Math.random() * dataRestaurantName.length);
-      const restaurantName = `${dataRestaurantName[index1] + i}\n`;
+      const restaurantName = `${dataRestaurantName[index1] + (i + 1)}\n`;
       i += 1;
       if (i === end) {
         stream.write(restaurantName, encoding, callback);
@@ -61,7 +61,8 @@ const randomReview = (start, end, stream, encoding, callback) => {
   const write = () => {
     let flag = true;
     while (i < end && flag) {
-      const restaurantReviews = [];
+      let stringOfReview = '';
+      const arrOfReviews = [];
 
       const randomIntReview = getRandomInt(1, 5);
       for (let j = 0; j < randomIntReview; j += 1) {
@@ -69,21 +70,21 @@ const randomReview = (start, end, stream, encoding, callback) => {
         const index3 = Math.floor(Math.random() * dataCity.length);
         const index4 = Math.floor(Math.random() * dataReview.length);
         const review = {
-          reviewId: i,
           username: dataUsername[index2],
           city: dataCity[index3],
           dinedDate: getRandomTime(),
           rating: getRandomInt(0, 5),
           review: dataReview[index4],
+          restoId: i + 1,
         };
-        const stringOfReview = Object.values(review).join(',');
-        restaurantReviews.push(stringOfReview);
+        stringOfReview = `${Object.values(review).join(',')}\n`;
+        arrOfReviews.push(stringOfReview);
       }
       i += 1;
       if (i === end) {
-        stream.write(restaurantReviews.join('\n'), encoding, callback);
+        stream.write(arrOfReviews.join(''), encoding, callback);
       } else {
-        flag = stream.write(restaurantReviews.join('\n'), encoding);
+        flag = stream.write(arrOfReviews.join(''), encoding);
       }
     }
     if (i < end) {
@@ -93,5 +94,5 @@ const randomReview = (start, end, stream, encoding, callback) => {
   write();
 };
 
-randomResto(0, 10, writeStreamResto, 'utf8', () => console.log('COMPLETED resto.json'));
-randomReview(0, 10, writeStreamReview, 'utf8', () => console.log('COMPLETED review.json'));
+randomResto(0, 10000000, writeStreamResto, 'utf8', () => console.log('COMPLETED resto.csv'));
+randomReview(0, 10000000, writeStreamReview, 'utf8', () => console.log('COMPLETED review.csv'));
