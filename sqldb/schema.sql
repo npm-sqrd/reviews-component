@@ -24,6 +24,9 @@ CREATE TABLE review
 
 \copy review(username, city, dinedDate, rating, review, restaurant_Id) FROM 'sqldb/csv-file/review-data.csv' DELIMITER ',' CSV
 
--- CREATE INDEX ON restaurant (restaurantName);
+CREATE INDEX ON restaurant (restaurantName);
+CREATE INDEX ON review (restaurant_id);
 
 -- EXPLAIN ANALYZE SELECT * FROM restaurant INNER JOIN review ON restaurant.restaurantName = 'Bergstrom-Heaney5000000' AND restaurant.restaurantId = review.restaurant_Id;
+
+-- psql postgres < sqldb/schema.sql
