@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/restaurants_reviews');
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => { console.log('mongodb connection successful'); });
+
 const restaurantSchema = mongoose.Schema({
   restaurantId: { type: Number, required: true, unique: true },
   restaurantName: { type: String, required: true },
@@ -14,7 +18,7 @@ const restaurantSchema = mongoose.Schema({
       review: { type: String, required: true },
     },
   ],
-}).index({ id: 1, restaurantName: 1 });
+});
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
@@ -34,3 +38,5 @@ function findByRestaurantId(id, callback) {
 
 module.exports.insertOne = insertOne;
 module.exports.findByRestaurantId = findByRestaurantId;
+
+// .createIndex({ restaurantId: 1, restaurantName: 1 });
