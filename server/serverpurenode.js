@@ -1,36 +1,47 @@
-const http = require('http');
-const path = require('path');
 const fs = require('fs');
+const http = require('http');
 const db = require('../db/mongodb');
 
+const html = fs.readFileSync('./react/dist/index.html', 'utf8');
+const css = fs.readFileSync('./react/dist/style.css', 'utf8');
+const bundle = fs.readFileSync('./react/dist/bundle-prod.js', 'utf8');
+
 const port = process.env.PORT || 3001;
-const indexPath = '../react/dist/index.html';
-const stylePath = '../react/dist/style.css';
+
+const files = {
+  'index.html': html,
+  'style.css': css,
+  'bundle-prod.js': bundle,
+};
+
+const filePathsAndType = {
+  '/': 'text/html',
+  '/index.html': 'text/html',
+  '/style.css': 'text/css',
+  '/bundle-prod.js': 'application/javascript',
+};
 
 http.createServer((req, res) => {
-  if (req.url === '/') {
-    fs.readFile(indexPath, 'utf8', (err, data) => {
-      if (err) {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.write(err.toString());
-        res.end();
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(data.toString());
-        res.end();
-      }
-    });
-  } else if (req.method === 'GET' && req.url === '/restaurants/:id') {
-    db.findByRestaurantId(req, (err, results) => {
+  if (req.method === 'GET' && req.url.startsWith('/restaurants')) {
+    const id = Number(req.url.slice(13));
+    db.findByRestaurantId(id, (err, data) => {
       if (err) {
         res.writeHead(404);
         res.write('Not Found!');
         res.end();
       } else {
-        res.writeHead(200, { contentType: 'application/json' });
-        res.end(results);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        const jsonString = JSON.stringify(data);
+        res.end(jsonString);
       }
     });
+  } else if (['/', '/index.html', '/style.css', '/bundle-prod.js'].includes(req.url)) {
+    res.writeHead(200, { 'Content-Type': filePathsAndType[req.url] });
+    res.end(req.url === '/' ? files['index.html'] : files[req.url.slice(1)]);
+  } else {
+    res.writeHead(404);
+    res.write('Not Found!');
+    res.end();
   }
 }).listen(port);
 console.log(`Node Server Up on port: ${port}`);
