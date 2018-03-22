@@ -1,0 +1,17 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalCount: 20
+  defaults:
+    # headers:
+    #   x-my-service-auth: '987401838271002188298567'
+  payload:
+    path: "./ids.csv"
+    fields:
+      - "id"
+scenarios:
+  - flow:
+    - get:
+        url: "/restaurants/{{ id }}"
+      count: 10
