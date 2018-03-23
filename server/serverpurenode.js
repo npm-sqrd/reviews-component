@@ -1,3 +1,4 @@
+require('newrelic');
 const fs = require('fs');
 const http = require('http');
 const db = require('../db/mongodb');

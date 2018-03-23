@@ -1,17 +1,23 @@
 config:
   target: 'http://localhost:3000'
+  http:
+    pool: 10 # All HTTP requests from all virtual users will be sent over the same 10 connections
   phases:
-    - duration: 60
-      arrivalCount: 20
+    - duration: 20
+      arrivalCount: 200
   defaults:
-    # headers:
-    #   x-my-service-auth: '987401838271002188298567'
+    headers:
+      x-my-service-auth: '987401838271002188298567'
   payload:
     path: "./ids.csv"
     fields:
       - "id"
 scenarios:
   - flow:
-    - get:
-        url: "/restaurants/{{ id }}"
-      count: 10
+    - loop:
+      - get:
+          url: "/restaurants/{{ id }}"
+      count: 2000
+
+# the loop construct to loop through a number of requests in a
+# scenario. Each virtual user will send 2000 GET requests to /restaurants/id with this scenario
