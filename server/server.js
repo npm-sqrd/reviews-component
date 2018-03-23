@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/mongodb'); // mongodb
@@ -30,6 +31,4 @@ app.get('/restaurants/:id', (request, response) => {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => { console.log(`Server Up on port: ${port}`); });
-
-module.exports = app;
+app.listen(port, () => { console.log(`Express Server Up on port: ${port}`); });
