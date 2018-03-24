@@ -2,69 +2,18 @@
 
 Project resembles a clone of Open Table's reviews component
 
-## Getting Started
+## Usage
 
-These instructions will get you a copy of the project up and running on your local machine.
+### Dependencies
+- node + npm (`brew install node`)
+- mongoDB (`brew install mongodb`)
 
-### Prerequisites
+### Setup
+1. Install project dependencies with `npm install`.
+2. Run `npm run buid` to fire up Webpack.
+3. Run `npm start` to start server.
+4. Run `npm run generate-json` to generate a json file.
+5. Run `npm run seedDb-mongo` to seed the database.
 
-What things you need to install the software and how to install them
-
-```
-MongoDB
-NodeJS
-```
-
-### Initial Installations
-
-
-```
-To install MongoDB:
-
-npm install mongodb --save
-
-To initiate the server:
-
-mongod
-
-To go into the database in a new terminal:
-
-mongo
-
-
-For more references on Mongodb:
-
-https://docs.mongodb.com/
-
-
-To install all dependencies:
-
-npm install
-
-```
-
-### Reviews Component Setup
-
-```
-Seeding the data into db:
-
-npm run seed-db
-
-Starting webpack:
-
-npm run webpack
-
-Create Production bundle:
-
-npm run build
-
-Starting server:
-
-npm start
-
-Open client in browser at:
-
-http://localhost:3000/
-
-
-```
+### Server
+- Server listening on port 3001

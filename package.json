@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/serverpurenode.js",
     "webpack": "webpack -d --watch",
     "test": "jest",
     "coverage": "jest --coverage",
