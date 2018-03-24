@@ -1,7 +1,6 @@
 const path = require('path');
 
 const common = {
-  context: path.resolve(__dirname, './react/src'),
   module: {
     loaders: [
       {
@@ -17,7 +16,7 @@ const common = {
 };
 
 const client = {
-  entry: path.resolve(__dirname, 'production.jsx'),
+  entry: path.resolve(__dirname, './react/src/production.jsx'),
   output: {
     path: path.resolve(__dirname, './react/dist'),
     filename: 'bundle-prod.js',
@@ -25,7 +24,7 @@ const client = {
 };
 
 const server = {
-  entry: path.resolve(__dirname, 'srcserver.js'),
+  entry: path.resolve(__dirname, './react/src/srcserver.js'),
   target: 'node',
   output: {
     path: path.resolve(__dirname, './react/dist'),
