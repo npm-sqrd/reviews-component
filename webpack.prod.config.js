@@ -28,7 +28,7 @@ const server = {
   target: 'node',
   output: {
     path: path.resolve(__dirname, './react/dist'),
-    filename: 'bundle-server.js',
+    filename: 'bundle-prod-server.js',
     libraryTarget: 'commonjs-module',
   },
 };
