@@ -1,16 +1,10 @@
 import React from 'react';
-import ReviewEntry from './reviewEntry.jsx';
+import ReviewEntry from './reviewEntry';
 
-const ReviewsList = (props) => {
-  return (
-    <div>
-      {props.reviews.map(review => {
-        return (
-          <ReviewEntry review={review} />
-        )
-      })}
-    </div>
-  );
-};
+const ReviewsList = props => (
+  <div>
+    {props.reviews.map(review => <ReviewEntry review={review} id={review.id} />)}
+  </div>
+);
 
 export default ReviewsList;

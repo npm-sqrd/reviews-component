@@ -1,8 +1,7 @@
 import React from 'react';
-//import $ from 'jquery';
 import axios from 'axios';
-import OverallRatings from './overallRatings.jsx';
-import Restaurants from './restaurants.jsx';
+import OverallRatings from './overallRatings';
+import Restaurants from './restaurants';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,25 +19,8 @@ class App extends React.Component {
       .then((res) => {
         this.setState({ data: res.data });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-
-  // fetch() {
-  //   // const env = process.env.aws ? process.env.aws : '';
-  //   $.ajax({
-  //     url: `/restaurants/${this.state.id}`,
-  //     method: 'GET',
-  //     success: (data) => {
-  //       this.setState({
-  //         data: data,
-  //       });
-  //     },
-  //     error: (error) => {
-  //       console.log('error: ', error);
-  //     },
-  //   });
-  // }
-
 
   render() {
     return (

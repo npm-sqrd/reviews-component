@@ -1,16 +1,10 @@
 import React from 'react';
-import ReviewsList from './reviewsList.jsx';
+import ReviewsList from './reviewsList';
 
-const Restaurants = (props) => {
-  return (
-    <div>
-      {props.restaurantsList.map(restaurant => {
-        return (
-          <ReviewsList reviews={restaurant.restaurantReviews} />
-        )
-      })}
-    </div>
-  );
-};
+const Restaurants = props => (
+  <div>
+    {props.restaurantsList.map(restaurant => <ReviewsList reviews={restaurant.restaurantReviews} id={restaurant.id} />)}
+  </div>
+);
 
 export default Restaurants;
