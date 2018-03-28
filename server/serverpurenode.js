@@ -1,4 +1,4 @@
-require('newrelic');
+// require('newrelic');
 const fs = require('fs');
 const http = require('http');
 const db = require('../db/mongodb');
@@ -39,6 +39,7 @@ http.createServer((req, res) => {
 
   // index.html path
   } else if (req.url === '/') {
+    console.log("console.log req.url", req.url);
     fs.readFile(html, 'utf8', (err, file) => {
       if (err) {
         res.writeHead(404);

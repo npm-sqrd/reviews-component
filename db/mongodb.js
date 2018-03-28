@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/restaurants_reviews');
+//mongoose.connect('mongodb://localhost/restaurants_reviews');
+const dbURL = process.env.MONGO_URL || 'mongodb://mongo/restaurants_reviews';
+mongoose.connect(dbURL);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
