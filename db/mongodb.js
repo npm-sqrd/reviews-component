@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-//mongoose.connect('mongodb://localhost/restaurants_reviews');
-const dbURL = process.env.MONGO_URL || 'mongodb://mongo/restaurants_reviews';
-mongoose.connect(dbURL);
+// mongoose.connect('mongodb://localhost/restaurants_reviews');
+// const dbURL = process.env.MONGO_URL || 'mongodb://ec2-54-183-10-86.us-west-1.compute.amazonaws.com/restaurants_reviews';
+mongoose.connect('mongodb://ec2-54-183-10-86.us-west-1.compute.amazonaws.com/restaurants_reviews');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
