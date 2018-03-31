@@ -30,7 +30,6 @@ const writeStream = fs.createWriteStream('nosqldb/json-file/restaurant-data.json
 
 const randomDataGene = (start, end, stream, encoding, callback) => {
   let i = start;
-  const dataRestaurantName = ['Ledner-Parisian', 'Torp-Dare', 'Stokes and Sons', 'Bergstrom-Heaney', 'Collins LLC', 'Hammes-Corwin', 'Doyle LLC', 'Gusikowski and Sons', 'Wolff, Sawayn and Spinka', 'Beatty-Champlin', 'Morar-Gleichner', 'Satterfield-Grimes', 'Thiel-Johns', 'Brakus-Kuphal', 'Oberbrunner Group', 'Schuppe-Hickle', 'Conroy, McLaughlin and Stark', 'Vandervort LLC', 'Corkery Inc'];
   const dataUsername = ['kmanuele0', 'mstaff1', 'ydubock2', 'hgiraldez3', 'dcluff4', 'dgibke5', 'nsackler6', 'tlillie7', 'whuygen8', 'cgavrieli9', 'ofidelusa', 'ldehnb', 'mmathisc', 'kburneyd', 'dskirlinge', 'abuxsyf', 'gconrardg', 'jcallenderh', 'lmadocjonesi'];
   const dataCity = ['Lexington', 'Las Palmas', 'Chipoka', 'Qi’an', 'Milówka', 'Arneiro', 'Kubangsari', 'Lahuaytambo', 'Radocza', 'Mekarsari', 'Solna', 'Abilay', 'Saratov', 'El Salitre', 'Barranca de Upía', 'Alasmalang', 'Bobrovka', 'Daixi', 'Bébédja'];
   const dataReview = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Sed tempus odio nec neque porta, nec sagittis lorem ullamcorper.', 'Sed nec odio lacinia, rhoncus sapien letius, bibendum sapien.',
@@ -39,10 +38,9 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
   const write = () => {
     let flag = true;
     while (i < end && flag) {
-      const index1 = Math.floor(Math.random() * dataRestaurantName.length);
       const restoObj = {
         restaurantId: i,
-        restaurantName: dataRestaurantName[index1] + i,
+        restaurantName: `restaurant${i}`,
         restaurantReviews: [],
       };
       // generate a random number of reviews
@@ -76,4 +74,4 @@ const randomDataGene = (start, end, stream, encoding, callback) => {
   write();
 };
 
-randomDataGene(0, 10000000, writeStream, 'utf8', () => console.log('COMPLETED'));
+randomDataGene(10000000, 12000000, writeStream, 'utf8', () => console.log('COMPLETED'));

@@ -23,7 +23,7 @@ http.createServer((req, res) => {
         res.end(reply);
       } else {
         db.findByRestaurantId(id, (error, data) => {
-          if (error || id >= 10000000) {
+          if (error) {
             res.writeHead(404);
             res.write('Not Found!');
             res.end();
